@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ninja Missions</title>
+  <link href='/style.css' rel='stylesheet'>
+</head>
+<body>
+  <h1>Ninja Missions</h1>
+  
+  <h1>Enter Your Mission:</h1>
+  <form id="mission-form">
+      <input type="text" id="mission-poster" placeholder="Mission Poster Name" required><br> 
+      <input type="text" id="mission-name" placeholder="Mission Name" required><br>
+      <textarea id="mission-description" placeholder="Mission Description"></textarea><br> 
+      <button type="submit">Add Mission</button>
+  </form>
+  <h2>All NINJA Missions:</h2>
+  <input type="password" id="admin-password" placeholder="Admin Password">
+<button onclick="checkAdmin()">Authenticate</button>
+  <div id="mission-area"></div>
+
+
+  <script type="text/javascript" src="/main.js"></script>
+</body>
+</html>

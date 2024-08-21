@@ -1,0 +1,167 @@
+/* Add styles here */
+
+    #mission-area {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    p {
+        color: black;
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    h1 {
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        color: darkturquoise
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: auto;
+    }
+    a {
+        
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        color: rgb(255, 0, 132)
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        cursor: pointer;
+        
+    }
+    body{ 
+        text-shadow: 2px 2px 5px rgb(125, 125, 125);
+        font-family: Arial; 
+            
+        box-shadow: 10px 10px lightblue;
+    } 
+    body {
+        box-shadow: 10px 10px lightblue;
+        padding: 25px;
+        background-color: white;
+        color: black;
+        font-size: 25px;
+      }
+      
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+    
+    img {
+        
+    
+        
+        
+        border-radius: 8px;
+    -webkit-animation: backwards;
+    
+    
+    }
+    .ninjarrimgage {
+        border-radius: 25px;
+        box-shadow: 10px 10px lightblue;
+    }
+    header {
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 25px;
+        Color: rgb(0, 0, 0);
+        font-size: 400%;
+        outline: black;
+        box-shadow: rgb(0, 0, 0);
+    }
+    nav {
+        transition: width 2s; 
+        position: fixed; top: 0;left: 0;
+        margin-bottom: 130px;
+        background-color: black;
+        box-shadow: 10px 10px lightblue;
+        
+        }
+        
+        button {
+            transition: width 2s;
+            width: 100%;
+            padding: 12px 0;
+            box-shadow: 10px 10px lightblue;
+            border: none;
+            border-radius: 25px;
+            background-color: blue;
+            color: #00ff62;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .password-input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+    
+    button:hover {
+        transition: width 2s;
+        box-shadow: 10px 10px lightblue;
+        background-color: #2a76f0;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(42, 118, 240, 0.4);
+    }
+    
+    .password-input {
+        border-radius: 25px;
+    }
+      a:hover {
+        color: #00ff62;
+      }
+      a:link {
+        color: rgb(255, 0, 149);
+      }
+     div {
+        border-radius: 25px;
+     }
+     input {
+        width: 100%;
+        border-radius: 25px;
+        height: 30px;
+        font-size: medium;
+      }
+     /* The popup form - hidden by default */
+    .form-popup {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+        background-color: #ffffff;
+        box-shadow: 10px 10px lightblue;
+      }
+    
+    /* General Styles (for all screen sizes) */
+body {
+    font-family: sans-serif;
+    margin: 20px;
+  }
+  #mission-form input, 
+  #mission-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box; 
+  }
+  #mission-area {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  /* Tablet-Specific Styles (for screens around 768px wide) */
+  @media (min-width: 768px) { 
+    #mission-form input,
+    #mission-form textarea {
+      width: 50%; /* Adjust input field width for tablets */
+    }
+   
