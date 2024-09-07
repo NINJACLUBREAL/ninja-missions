@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-
+  <meta name="google-signin-client_id" content="177921922444-f97u9fp2370js56fslgt1rsud3k0jjma.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ninja Missions</title>
@@ -12,11 +13,37 @@
   <h2>note the missions are stored on your commputer and no one else can see them yet! we will try to fix this!</h2>
   <h1>Enter Your Mission:</h1>
   <form id="mission-form">
+    <input type="text" id="userName" placeholder="Enter your name">
+
+
+
       <input type="text" id="mission-poster" placeholder="Mission Poster Name" required><br> 
       <input type="text" id="mission-name" placeholder="Mission Name" required><br>
       <textarea id="mission-description" placeholder="Mission Description"></textarea><br> 
       <button type="submit">Add Mission</button>
-  </form>
+  </form><br>
+  <div id="my-signin2"></div>
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
   <h2>All NINJA Missions:</h2>
   <input type="password" id="admin-password" placeholder="Admin Password">
 <button onclick="checkAdmin()">Authenticate</button>

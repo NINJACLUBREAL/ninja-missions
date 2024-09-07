@@ -96,3 +96,77 @@ function deleteMission(index) {
     const missionToDelete = document.querySelector(`.delete-button[data-index="${index}"]`).parentElement;
     missionArea.removeChild(missionToDelete); 
 }
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    profile = googleUser.getBasicProfile();
+  document.getElementById('userName').value = profile.getName();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3043782291.
+  }
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+  
+  function onSuccess(googleUser) {
+    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    const idToken = googleUser.getAuthResponse().id_token; 
+
+    // Send the ID token to your backend (e.g., using fetch)
+    fetch('/verify-token', {
+        method
+: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ token: idToken })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the response from your backend (e.g., set a cookie if successful)
+        if (data.success) {
+            // Optionally set a client-side cookie for quick UI updates
+            document.cookie = "loggedIn=true; path=/"; 
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+const express = require('express');
+const { OAuth2Client } = require('google-auth-library');
+
+const app = express();
+const CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID'; // Replace with your actual Client ID
+const client = new OAuth2Client(CLIENT_ID);
+
+app.use(express.json()); // To parse JSON request bodies
+
+app.post('/verify-token', async (req, res) => {
+    const { token } = req.body;
+
+    try {
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: CLIENT_ID // Specify your client ID as the audience
+        });
+        const payload = ticket.getPayload();
+
+        // If verification is successful, create a session and set a cookie
+        res.cookie('session', 'some_session_value', { 
+            httpOnly: true, 
+            secure: true, // Use 'secure' in production environments
+            maxAge: 3600000 // Cookie expiration time (in milliseconds)
+        });
+        res.json({ success: true });
+
+    } catch (error) {
+        console.error('Error verifying token:', error);
+        res.status(401).json({ success: false, error: 'Invalid token' });
+    }
+});
+
+// ... rest of your backend code
